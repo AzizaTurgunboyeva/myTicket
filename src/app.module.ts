@@ -57,6 +57,9 @@ import { Seat } from "./seat/models/seat.model";
 import { CartItem } from "./cart_item/models/cart_item.model";
 import { CustomerAddress } from "./customer_address/models/customer_address.model";
 import { CustomerCard } from "./customer_card/models/customer_card.model.";
+import { StatusModule } from './status/status.module';
+import { Status } from "./status/models/status.model";
+import { Booking } from "./booking/models/booking.model";
 
 
 @Module({
@@ -97,7 +100,10 @@ import { CustomerCard } from "./customer_card/models/customer_card.model.";
         Ticket,
         Seat,
         CustomerAddress,
-        CustomerCard
+        CustomerCard,
+        Status,
+        Booking
+      
  
 
       ],
@@ -134,6 +140,7 @@ import { CustomerCard } from "./customer_card/models/customer_card.model.";
     TicketModule,
     EventModule,
     EventTypeModule,
+    StatusModule,
     
   ],
   controllers: [],

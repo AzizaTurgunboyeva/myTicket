@@ -1,4 +1,5 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { Booking } from "../../booking/models/booking.model";
 
 interface IDeliveryMethodCreationattr {
   name: string;
@@ -20,4 +21,7 @@ export class DeliveryMethod extends Model<
     type: DataType.STRING(20),
   })
   name: string;
+
+  @HasMany(()=>Booking)
+  booking:Booking[]
 }

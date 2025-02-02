@@ -10,6 +10,7 @@ import {
 } from "sequelize-typescript";
 import { TicketStatus } from "../../ticket_status/models/ticket_status.models";
 import { CartItem } from "../../cart_item/models/cart_item.model";
+import { Booking } from "../../booking/models/booking.model";
 
 interface ICartCreationAttr {
   customerId: number;
@@ -54,6 +55,9 @@ export class Cart extends Model<Cart, ICartCreationAttr> {
 
   @BelongsTo(() => TicketStatus)
   ticket_status: TicketStatus;
+
   @HasMany(()=>CartItem)
   cart_item:CartItem[]
+  @HasMany(()=>Booking)
+  booking:Booking[]
 }
