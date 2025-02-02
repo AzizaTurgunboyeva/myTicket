@@ -31,6 +31,6 @@ export class HumanCategoryService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} humanCategory`;
+    return this.humanCategoryModel.destroy({where:{id}})
   }
 }

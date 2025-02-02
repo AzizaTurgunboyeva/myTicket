@@ -1,4 +1,5 @@
-import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
+import { Event } from "../../event/models/event.model";
 
 interface IHumanCategoryCreationAttr {
   name: string;
@@ -37,4 +38,6 @@ export class HumanCategory extends Model<
     type: DataType.STRING,
   })
   gender: string;
+  @HasMany(()=>Event)
+  event:Event[]
 }

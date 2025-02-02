@@ -1,8 +1,11 @@
-import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { District } from "../../district/models/district.model";
 import { Region } from "../../region/models/region.model";
 import { VenueType } from "../../venue_type/models/venue_type.venue";
 import { VenueVenueType } from "../../venue-venue-type/models/venue-venue-type.model";
+import { VenuePhoto } from "../../venue_photo/models/venue_photo.model";
+
+
 
 
 
@@ -60,13 +63,16 @@ export class Venue extends Model<Venue, IVenueCreationAttr> {
     type: DataType.INTEGER,
   })
   districtId: number;
-  
+
   @BelongsTo(() => Region)
   region: Region;
 
   @BelongsTo(() => District)
   district: District;
 
-  @BelongsToMany(()=>VenueType,()=>VenueVenueType)
-  venueTypes:VenueType[]
+  @BelongsToMany(() => VenueType, () => VenueVenueType)
+  venueTypes: VenueType[];
+
+  @HasMany(() => VenuePhoto)
+  venuePhoto: VenuePhoto[];
 }
